@@ -11,12 +11,15 @@ const Pagination = (props) => {
         pageSize
     } = props;
 
+    console.log(props)
 
-    const paginationRange = usePagination({
-        currentPage,
-        totalCount,
-        pageSize
-    });
+    const paginationRange = usePagination(
+        {
+            currentPage,
+            totalCount,
+            pageSize
+        }
+    );
 
     if (!paginationRange) {
         return null;
@@ -25,26 +28,22 @@ const Pagination = (props) => {
     return (
 
         <>
-            {paginationRange[0]} != 1 && <button onClick={() => onPageChange(1)}> First </button>
+            {currentPage !== 1 && <button onClick={() => onPageChange(1)}> First </button>}
         
-            {paginationRange[0]} != 1 && <button onClick={() => onPageChange(currentPage - 1)}> Previous </button>
+            {currentPage !== 1 && <button onClick={() => onPageChange(currentPage - 1)}> Previous </button>}
 
-            {paginationRange.map(pageNumber => {
-
+            {paginationRange?.map(pageNumber => {
 
                 return (
-                    <li
-                        
-                        onClick={() => onPageChange(pageNumber)}
-                    >
+                    <li onClick={() => onPageChange(pageNumber)}>
                         {pageNumber}
                     </li>
                 );
             })}
 
-            {paginationRange[0]} != 1 && <button onClick={() => onPageChange(currentPage + 1)}> Next </button>
+            {currentPage !== Math.ceil(totalCount / pageSize) && <button onClick={() => onPageChange(currentPage + 1)}> Next </button>}
 
-            {paginationRange[0]} != 1 && <button onClick={() => onPageChange(Math.ceil(totalCount / pageSize))}> Last </button>
+            {currentPage !== Math.ceil(totalCount / pageSize) && <button onClick={() => onPageChange(Math.ceil(totalCount / pageSize))}> Last </button>}
 
         </>
 

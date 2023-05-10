@@ -2,10 +2,7 @@
 
 const BikeCard = (props) => {
     const bike = props.bike;
-    console.log(bike.large_img);
-    console.log(bike.status);
-    console.log(bike.title);
-    console.log(bike.description);
+  
 
     return (
         <div className="bike-card">
