@@ -11,8 +11,7 @@ const Pagination = (props) => {
         pageSize
     } = props;
 
-    console.log(props)
-
+    console.log("props", props);
     const paginationRange = usePagination(
         {
             currentPage,
@@ -20,6 +19,7 @@ const Pagination = (props) => {
             pageSize
         }
     );
+
 
     if (!paginationRange) {
         return null;
@@ -35,9 +35,9 @@ const Pagination = (props) => {
             {paginationRange?.map(pageNumber => {
 
                 return (
-                    <li onClick={() => onPageChange(pageNumber)}>
+                    <button onClick={() => onPageChange(pageNumber)}>
                         {pageNumber}
-                    </li>
+                    </button>
                 );
             })}
 
