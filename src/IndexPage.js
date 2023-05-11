@@ -16,9 +16,9 @@ const IndexPage = () => {
     const [searchItem, setSearchItem] = useState("");
     const [filteredBikes, setFilteredBikes] = useState("");
     const searchTrigger = useRef(-1);
-
-    const [fromDate, setFromDate] = useState(new Date());
-    const [toDate, setToDate] = useState(new Date());
+   
+    const [fromDate, setFromDate] = useState(null);
+    const [toDate, setToDate] = useState(null);
 
     useEffect(() => {
         axios.get("https://bikeindex.org:443/api/v3/search?location=berlin&stolenness=proximity").then((response) => {
@@ -35,7 +35,6 @@ const IndexPage = () => {
         const lastPageIndex = firstPageIndex + PageSize;
         return currStolenBikes?.slice(firstPageIndex, lastPageIndex);
     }, [currentPage, currStolenBikes]);
-    
 
     useEffect(() => {
 
@@ -54,6 +53,15 @@ const IndexPage = () => {
 
     }, [searchItem]);
 
+    const findBykes = () => {
+
+        setCurrStolenBikes((filteredBikes.length>0 ? filteredBikes : allStolenBikes).filter((bike) =>
+            bike.date_stolen <= Math.floor(toDate.getTime() / 1000) && bike.date_stolen >= Math.floor(fromDate.getTime() / 1000)
+        ));
+        
+    };
+
+  
 
     return (
 
@@ -70,14 +78,24 @@ const IndexPage = () => {
             />
 
             <DatePicker
+                placeholder="Stolen from date"
                 selected={fromDate}
                 onChange={date => setFromDate(date)} />
 
             <DatePicker
+                placeholder="Stolen until date"
                 selected={toDate}
                 onChange={date => setToDate(date)} />
-            
 
+            <button onClick={findBykes} disabled={!fromDate || !toDate}>Find Bykes</button>
+
+            <button onClick={() => {
+                setSearchItem("");
+                setCurrStolenBikes(allStolenBikes);
+                setFromDate(null);
+                setToDate(null);
+
+            }}>Reset Search</button>
           
             {currentBikesData && currentBikesData.map((bike) =>
                 <BikeCard key={bike.id} bike={bike} />

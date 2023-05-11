@@ -11,7 +11,6 @@ const Pagination = (props) => {
         pageSize
     } = props;
 
-    console.log("props", props);
     const paginationRange = usePagination(
         {
             currentPage,
