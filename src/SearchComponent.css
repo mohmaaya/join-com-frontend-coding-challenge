@@ -1,0 +1,44 @@
+.search-component-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    margin-top: 70px;
+}
+
+.search-input-container {
+    margin-right: 10px;
+}
+
+.search-input {
+    padding: 10px;
+    border-radius: 10px;
+    width: 200px;
+    margin-left: 20px;
+}
+
+.date-picker-container {
+    display: flex;
+    gap: 10px;
+}
+
+.date-picker {
+    padding: 10px;
+    border-radius: 10px;
+    width: 150px;
+}
+
+.button-container {
+    display: flex;
+    gap: 10px;
+}
+
+.search-button,
+.reset-button {
+    padding:  10px;
+    background-color: #ccc;
+    border: none;
+    border-radius: 5px;
+    margin-left: 10px;
+    cursor: pointer;
+}

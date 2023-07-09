@@ -1,0 +1,116 @@
+.container {
+	display: grid;
+	place-items: center;
+	min-height: 100vh;
+	background-color: skyblue;
+}
+
+.heading {
+	font-size: 48px;
+	font-weight: bold;
+	text-align: center;
+	margin-bottom: 20px;
+	position: relative;
+	z-index: 1;
+	animation: shining 6s linear infinite;
+}
+
+@keyframes shining {
+	0% {
+		color: #ff00a6;
+	}
+
+	14% {
+		color: #ff7b00;
+	}
+
+	28% {
+		color: #f2ff00;
+	}
+
+	42% {
+		color: #00ff0a;
+	}
+
+	57% {
+		color: #00ffe5;
+	}
+
+	71% {
+		color: #00b5ff;
+	}
+
+	85% {
+		color: #9c00ff;
+	}
+
+	100% {
+		color: #ff00a6;
+	}
+}
+
+.search-container {
+	display: grid;
+	grid-template-columns: 1fr auto;
+	grid-gap: 10px;
+	width: 50%;
+	justify-self: center;
+	
+}
+
+.text-input {
+	padding: 10px;
+	border-radius: 10px;
+}
+
+.button {
+	padding: 5px 10px;
+	background-color: #ccc;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+.bike-card-container {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-gap: 20px;
+	max-width: 1200px;
+	margin-top: 20px;
+	justify-self: center;
+}
+
+.bike-card {
+	width: 100%;
+}
+
+
+.footer {
+	border-top: 1px solid #fff;
+	padding: 10px 20px;
+	color: black;
+	position: relative;
+	overflow: hidden;
+	margin-top: 40px;
+}
+
+.contact-icons {
+	display: flex;
+	align-items: center;
+	margin-top: 10px;
+}
+
+	.contact-icons a,
+	.contact-icons span {
+		margin-right: 10px;
+		margin-left: 20px;
+		color: #222;
+		text-decoration: none;
+		font-family: 'Arial', sans-serif;
+		display: flex;
+		align-items: center;
+	}
+
+		.contact-icons a:hover {
+			text-decoration: underline;
+		}

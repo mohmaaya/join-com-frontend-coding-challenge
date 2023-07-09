@@ -1,0 +1,30 @@
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px; 
+    color: black ;
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+    .pagination button {
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+        padding: 0;
+        outline: none;
+        transition: color 0.3s;
+        font-size: 18px; 
+        margin: 0 5px;
+    }
+
+        .pagination button:hover {
+            color: darkslategrey;
+            text-decoration: underline;
+        }
+
+    .pagination .active {
+        color: #000;
+        text-decoration: underline;
+    }
